@@ -7,7 +7,9 @@ const purchaseRoutes = require('./routes/purchaseRoutes'); // added
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://mern-project-qie26haah-rahulk49855-2371s-projects.vercel.app"
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
