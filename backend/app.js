@@ -8,18 +8,11 @@ const purchaseRoutes = require("./routes/purchaseRoutes");
 const app = express();
 
 const corsOptions = {
-  origin: [
-    "https://mern-project-qmqa5t11h-rahulk49855-2371s-projects.vercel.app",
-    "https://mern-project-qie26haah-rahulk49855-2371s-projects.vercel.app",
-    "https://mern-project-tau-eosin.vercel.app",
-    "https://mern-project-mzinywk5n-rahulk49855-2371s-projects.vercel.app",
-  ],
+  origin: "https://mern-project-d6f1kiblf-rahulk49855-2371s-projects.vercel.app",
   credentials: true,
 };
 
 app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
-
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
