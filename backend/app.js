@@ -8,11 +8,18 @@ const purchaseRoutes = require("./routes/purchaseRoutes");
 const app = express();
 
 const corsOptions = {
-  origin: "https://mern-project-d6f1kiblf-rahulk49855-2371s-projects.vercel.app",
+  origin: [
+    "http://localhost:3000",
+    "https://mern-project-tau-eosin.vercel.app"
+  ],
   credentials: true,
 };
 
 app.use(cors(corsOptions));
+
+// IMPORTANT for preflight requests
+app.options("*", cors(corsOptions));
+
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
