@@ -17,18 +17,13 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
+      callback(null, true);
     },
     credentials: true,
   })
 );
+
+app.options(/.*/, cors());
 
 // Handle preflight requests
 app.options("*", cors());
